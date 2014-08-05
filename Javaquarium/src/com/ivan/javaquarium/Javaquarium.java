@@ -22,15 +22,18 @@ public class Javaquarium {
 		aquarium.ajouterPoisson(UsinePoisson.creerSole("S2", Sexe.M));
 		aquarium.ajouterAlgue(new Algue());
 		aquarium.ajouterAlgue(new Algue());
-
+		
+		aquarium.afficher();
 		int tour = 1;
 		while (!aquarium.estVide()) {
 			System.out.println("===================================");
 			System.out.println("tour N° " + tour++);
 			System.out.println("===================================");
-			aquarium.afficher();
-
+			
 			aquarium.evoluer();
+			System.out.println("\ninfos");
+			System.out.println("-----------------------------------");
+			aquarium.afficher();
 			try {
 				System.in.read();
 			} catch (IOException e) {

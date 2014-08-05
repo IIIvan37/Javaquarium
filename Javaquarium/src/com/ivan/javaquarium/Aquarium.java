@@ -27,6 +27,8 @@ public class Aquarium {
 	public void evoluer() {
 		mAlgues.addAll(evoluer(mAlgues));
 		mPoissons.addAll(evoluer(mPoissons));
+		retirerMorts(mAlgues);
+		retirerMorts(mPoissons);
 	}
 
 	public List<EtreVivant> getAlgues() {
@@ -54,7 +56,7 @@ public class Aquarium {
 			if (e.estVivant()) {
 				nouveauxEtresVivants.add(e);
 			} else {
-				System.out.println(String.format("%s est mort.", e.toString()));
+				System.out.println(String.format("%s est mort(e).", e.toString()));
 			}
 		}
 		etresVivants = nouveauxEtresVivants;
@@ -67,11 +69,11 @@ public class Aquarium {
 			EtreVivant nouveauEtreVivant = e.evoluer(this);
 			if (nouveauEtreVivant != null) {
 				nouveaux.add(nouveauEtreVivant);
-				System.out.println(String.format("Naissance d'%s ",
+				System.out.println(String.format("%s vient de naitre !",
 						nouveauEtreVivant.toString()));
 			}
 		}
-		retirerMorts(etresVivants);
+	
 		return nouveaux;
 	}
 
